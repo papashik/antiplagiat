@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ .Course.Name }} - Лаб. {{ .Delivery.Lab }}</title>
+
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="stylesheet" type="text/css" href="/html/style.css">
+
+</head>
+
+<body>
+<div>
+<a href="/">К списку курсов</a>
+<h2> Курс: <a href="/{{ .Course.Name }}">{{ .Course.Long_name }}</a> </h2>
+<h2> Лаб. работа <a href="/{{ .Course.Name }}/{{ .Delivery.Lab }}">№ {{ .Delivery.Lab }}</a> </h2>
+<h3 style="text-align:center"> Посылка № {{ .Delivery.Id }} </h3>
+<table>
+    <tr>
+    	<th>ID</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Вариант</th>
+        <th>Время</th>
+        <th>Язык сдачи</th>
+        <th>Оценка</th>
+        <th>Подозрение</th>
+    </tr>
+        <tr>
+            <td>{{ .Delivery.Id }}</td>
+            <td>{{ .User.Surname }}</td>
+            <td>{{ .User.Name }}</td>
+            <td>{{ .Delivery.Variant }}</td>
+            <td>{{ .Date }}</td>
+            <td class="lang">{{ .Delivery.Language }}</td>
+            <td style="color:{{ .Ant_mark_color }};">{{ .Delivery.Ant_mark }}</td>
+            <td>{{ .Ant_suspicion }}</td>
+        </tr>
+</table>
+<h3>Список проведённых сравнений</h3>
+{{ .Ant_review }}
+<h3 style="margin: 0px">Ошибка парсинга (если есть):</h3>
+{{ .Parsing_error }}
+<h3 style="margin: 0px">Код решения</h3>
+{{ .Solution }}
+
+{{ .Error_message }}
+</div>
+</body>
+</html>

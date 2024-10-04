@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ .Сourse_name }} - Лаб. {{ .Lab }}</title>
+
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="stylesheet" type="text/css" href="/html/style.css">
+
+</head>
+
+<body>
+<div>
+<a href="/">К списку курсов</a>
+<h2> Курс: <a href="/{{ .Сourse_name }}">{{ .Course_long_name }}</a> </h2>
+<h2> Лаб. работа № {{ .Lab }} </h2>
+<h3 style="text-align:center"> Список посылок </h3>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Фамилия</th>
+		<th>Имя</th>
+		<th>Вариант</th>
+		<th>Время</th>
+		<th>Язык сдачи</th>
+		<th><span class="helping" title=
+"Больше - лучше:
+-100 = ошибка парсинга
+0 = списано полностью 
+100 = решение оригинально">Оценка<sup><small>﹖</small></sup></span></th>
+		<th>Подробнее</th>
+		<th><span class="helping" title=
+"ID наиболее похожей ранней посылки:
+Посылка № ? = скорее всего, присутствуют заимствования у посылки № ?
+ОК (№ ?) = скорее всего, ложная тревога">Подозрение<sup><small>﹖</small></sup></span></th>
+	</tr>
+	{{ range .Deliveries}}
+		<tr>
+			<td>{{ .Id }}</td>
+			<td>{{ .Surname }}</td>
+			<td>{{ .Name }}</td>
+			<td>{{ .Variant }}</td>
+			<td>{{ .Date }}</td>
+			<td class="lang">{{ .Language }}</td>
+			<td style="color:{{ .Ant_mark_color }};">{{ .Ant_mark }}</td>
+			<td><a href="/delivery/{{ .Id }}">Отчёт</a></td>
+			<td>{{ .Ant_suspicion }}</td>
+		</tr>
+	{{ end}}
+</table>
+
+{{ .Error_message }}
+</div>
+</body>
+</html>

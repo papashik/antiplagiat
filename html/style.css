@@ -1,0 +1,41 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #eeeeee;
+  text-align: center;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.main {
+	width: 100%;
+}
+
+.mark {
+	background-color: #AA0000
+}
+
+.lang {
+	text-align: center;
+}
+
+a { 
+    color: blue;
+}
+.helping {
+	cursor: help;
+}
+sup { 
+	vertical-align: baseline; 
+	position: relative; 
+	top: -0.4em; 
+}
+sub { 
+	vertical-align: baseline; 
+	position: relative; 
+	bottom: -0.4em; 
+}

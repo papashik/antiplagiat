@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Учет лаб. работ</title>
+
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="stylesheet" type="text/css" href="/html/style.css">
+</head>
+
+<body> 
+<div>
+<h2 style="text-align:center"> Список курсов </h2>
+
+<table>
+    <tr>
+    	<th>Название</th>
+        <th>Кол-во лаб. работ</th>
+    </tr>
+    {{ range .Courses}}
+        <tr>
+            <td><a href="/{{ .Name }}">{{ .Long_name }}</a></td>
+            <td>{{ .Lab_amount }}</td>
+        </tr>
+    {{ end}}
+</table>
+
+{{ .Error_message }}
+</div>
+</body>
+</html>
